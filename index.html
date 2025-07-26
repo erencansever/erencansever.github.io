@@ -6,14 +6,21 @@
   <title>Eren Batu Cansever | Portfolio</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --card: #1a1a1a;
+      --bg: #0a0a0f;
+      --card: #1a1a2e;
       --text: #ffffff;
-      --accent: #00d4ff;
-      --yellow: #ffd700;
-      --muted: #888888;
-      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --card-gradient: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+      --accent: #ff6b6b;
+      --secondary: #4ecdc4;
+      --purple: #a55eea;
+      --orange: #fd79a8;
+      --yellow: #fdcb6e;
+      --muted: #a0a0a0;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --card-gradient: linear-gradient(145deg, #1a1a2e, #16213e);
+      --neon-glow: 0 0 20px rgba(255, 107, 107, 0.5);
     }
     
     * {
@@ -31,7 +38,7 @@
       position: relative;
     }
     
-    /* Animated Background */
+    /* Enhanced Animated Background */
     .bg-animation {
       position: fixed;
       top: 0;
@@ -40,10 +47,57 @@
       height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-      animation: bgFloat 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(165, 94, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 60%, rgba(253, 121, 168, 0.1) 0%, transparent 50%);
+      animation: bgFloat 25s ease-in-out infinite;
+    }
+    
+    /* Morphing Shapes */
+    .morphing-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.1;
+      animation: morphShape 20s ease-in-out infinite;
+    }
+    
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      background: var(--secondary);
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+    }
+    
+    .shape-3 {
+      width: 250px;
+      height: 250px;
+      background: var(--purple);
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 10s;
     }
     
     .floating-particles {
@@ -58,23 +112,21 @@
     
     .particle {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: var(--accent);
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
-      opacity: 0.3;
-      animation: particleFloat 15s linear infinite;
+      animation: particleFloat 20s linear infinite;
     }
     
-    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-    .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-    .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
-    .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
-    .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
-    .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
-    .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
-    .particle:nth-child(9) { left: 90%; animation-delay: 16s; }
+    .particle:nth-child(1) { background: var(--accent); left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { background: var(--secondary); left: 20%; animation-delay: 2s; }
+    .particle:nth-child(3) { background: var(--purple); left: 30%; animation-delay: 4s; }
+    .particle:nth-child(4) { background: var(--orange); left: 40%; animation-delay: 6s; }
+    .particle:nth-child(5) { background: var(--yellow); left: 50%; animation-delay: 8s; }
+    .particle:nth-child(6) { background: var(--accent); left: 60%; animation-delay: 10s; }
+    .particle:nth-child(7) { background: var(--secondary); left: 70%; animation-delay: 12s; }
+    .particle:nth-child(8) { background: var(--purple); left: 80%; animation-delay: 14s; }
+    .particle:nth-child(9) { background: var(--orange); left: 90%; animation-delay: 16s; }
     
     .container {
       max-width: 1000px;
@@ -84,7 +136,7 @@
       z-index: 1;
     }
     
-    /* Header Section */
+    /* Enhanced Header Section */
     .header {
       text-align: center;
       margin-bottom: 80px;
@@ -99,7 +151,7 @@
       transform: translateX(-50%);
       width: 100px;
       height: 3px;
-      background: var(--gradient);
+      background: var(--gradient-1);
       border-radius: 2px;
       animation: glowPulse 2s ease-in-out infinite;
     }
@@ -108,11 +160,12 @@
       font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 20px;
-      background: var(--gradient);
+      background: var(--gradient-2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: fadeInUp 1s ease-out, textGlow 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
     }
     
     .subtitle {
@@ -130,7 +183,7 @@
       animation: fadeInUp 1s ease-out 0.4s both;
     }
     
-    /* Links */
+    /* Enhanced Links */
     .links {
       display: flex;
       justify-content: center;
@@ -140,20 +193,27 @@
     }
     
     .links a {
-      padding: 12px 24px;
+      padding: 15px 30px;
       background: var(--card-gradient);
       color: var(--accent);
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       border: 2px solid transparent;
       position: relative;
       overflow: hidden;
       animation: buttonFloat 3s ease-in-out infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .links a:nth-child(1) {
+      background: var(--gradient-1);
+      animation-delay: 0s;
     }
     
     .links a:nth-child(2) {
+      background: var(--gradient-3);
       animation-delay: 1.5s;
     }
     
@@ -164,8 +224,8 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: var(--gradient);
-      transition: left 0.3s ease;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.4s ease;
       z-index: -1;
     }
     
@@ -175,11 +235,12 @@
     
     .links a:hover {
       color: white;
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), var(--neon-glow);
+      border-color: var(--accent);
     }
     
-    /* Projects Section */
+    /* Enhanced Projects Section */
     .projects-section {
       margin-top: 60px;
     }
@@ -191,6 +252,7 @@
       text-align: center;
       position: relative;
       animation: slideInFromLeft 1s ease-out;
+      text-shadow: 0 0 20px rgba(253, 203, 110, 0.3);
     }
     
     h2::after {
@@ -201,7 +263,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 2px;
-      background: var(--yellow);
+      background: var(--gradient-4);
       border-radius: 1px;
       animation: expandWidth 1.5s ease-out 0.5s both;
     }
@@ -222,6 +284,7 @@
       position: relative;
       overflow: hidden;
       animation: fadeInUp 1s ease-out;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
     .project:nth-child(2) {
@@ -235,7 +298,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: var(--gradient);
+      background: var(--gradient-2);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
@@ -245,16 +308,17 @@
     }
     
     .project:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border-color: rgba(0, 212, 255, 0.3);
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 107, 0.2);
+      border-color: var(--accent);
     }
     
     .project h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: var(--accent);
+      color: var(--secondary);
       animation: slideInFromRight 0.8s ease-out;
+      text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
     }
     
     .project p {
@@ -273,36 +337,39 @@
     }
     
     .tech-tag {
-      background: rgba(0, 212, 255, 0.1);
+      background: rgba(255, 107, 107, 0.1);
       color: var(--accent);
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 500;
-      border: 1px solid rgba(0, 212, 255, 0.2);
+      border: 1px solid rgba(255, 107, 107, 0.2);
       transition: all 0.3s ease;
       animation: tagPop 0.6s ease-out;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
     
     .tech-tag:hover {
-      background: rgba(0, 212, 255, 0.2);
-      transform: scale(1.1);
+      background: rgba(255, 107, 107, 0.2);
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
     }
     
     .project-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--accent);
+      color: var(--purple);
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
       animation: fadeIn 1s ease-out 0.7s both;
+      text-shadow: 0 0 10px rgba(165, 94, 234, 0.3);
     }
     
     .project-link:hover {
       gap: 12px;
-      color: var(--yellow);
+      color: var(--orange);
       transform: translateX(5px);
     }
     
@@ -315,7 +382,7 @@
       transform: translateX(4px);
     }
     
-    /* Footer */
+    /* Enhanced Footer */
     footer {
       text-align: center;
       margin-top: 80px;
@@ -323,9 +390,10 @@
       color: var(--muted);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       animation: fadeInUp 1s ease-out 1s both;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
     }
     
-    /* Animations */
+    /* Enhanced Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -370,31 +438,58 @@
     }
     
     @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 5px var(--accent); }
-      50% { box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+      0%, 100% { 
+        box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); 
+      }
+      50% { 
+        box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent); 
+      }
     }
     
     @keyframes textGlow {
-      0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3)); }
-      50% { filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6)); }
+      0%, 100% { 
+        filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.3)); 
+      }
+      50% { 
+        filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6)); 
+      }
     }
     
     @keyframes buttonFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-8px); }
     }
     
     @keyframes tagPop {
       0% { transform: scale(0); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
     
     @keyframes bgFloat {
       0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(-10px, -10px) rotate(1deg); }
-      50% { transform: translate(10px, -5px) rotate(-1deg); }
-      75% { transform: translate(-5px, 10px) rotate(1deg); }
+      25% { transform: translate(-15px, -15px) rotate(2deg); }
+      50% { transform: translate(15px, -10px) rotate(-2deg); }
+      75% { transform: translate(-10px, 15px) rotate(2deg); }
+    }
+    
+    @keyframes morphShape {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
+      }
+      25% { 
+        transform: scale(1.2) rotate(90deg);
+        border-radius: 30%;
+      }
+      50% { 
+        transform: scale(0.8) rotate(180deg);
+        border-radius: 60%;
+      }
+      75% { 
+        transform: scale(1.1) rotate(270deg);
+        border-radius: 40%;
+      }
     }
     
     @keyframes particleFloat {
@@ -403,10 +498,10 @@
         opacity: 0;
       }
       10% {
-        opacity: 0.3;
+        opacity: 0.5;
       }
       90% {
-        opacity: 0.3;
+        opacity: 0.5;
       }
       100% {
         transform: translateY(-100px) rotate(360deg);
@@ -439,9 +534,9 @@
       }
     }
     
-    /* Scrollbar Styling */
+    /* Enhanced Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 10px;
     }
     
     ::-webkit-scrollbar-track {
@@ -449,8 +544,8 @@
     }
     
     ::-webkit-scrollbar-thumb {
-      background: var(--gradient);
-      border-radius: 4px;
+      background: var(--gradient-2);
+      border-radius: 5px;
     }
     
     ::-webkit-scrollbar-thumb:hover {
@@ -459,8 +554,13 @@
   </style>
 </head>
 <body>
-  <!-- Animated Background -->
+  <!-- Enhanced Animated Background -->
   <div class="bg-animation"></div>
+  <div class="morphing-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
   <div class="floating-particles">
     <div class="particle"></div>
     <div class="particle"></div>
