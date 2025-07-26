@@ -28,12 +28,60 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
+    
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+      animation: bgFloat 20s ease-in-out infinite;
+    }
+    
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: particleFloat 15s linear infinite;
+    }
+    
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
+    .particle:nth-child(9) { left: 90%; animation-delay: 16s; }
     
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 40px 20px;
+      position: relative;
+      z-index: 1;
     }
     
     /* Header Section */
@@ -53,6 +101,7 @@
       height: 3px;
       background: var(--gradient);
       border-radius: 2px;
+      animation: glowPulse 2s ease-in-out infinite;
     }
     
     h1 {
@@ -63,7 +112,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: fadeInUp 1s ease-out;
+      animation: fadeInUp 1s ease-out, textGlow 3s ease-in-out infinite;
     }
     
     .subtitle {
@@ -101,6 +150,11 @@
       border: 2px solid transparent;
       position: relative;
       overflow: hidden;
+      animation: buttonFloat 3s ease-in-out infinite;
+    }
+    
+    .links a:nth-child(2) {
+      animation-delay: 1.5s;
     }
     
     .links a::before {
@@ -121,7 +175,7 @@
     
     .links a:hover {
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
       box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
     }
     
@@ -136,6 +190,7 @@
       color: var(--yellow);
       text-align: center;
       position: relative;
+      animation: slideInFromLeft 1s ease-out;
     }
     
     h2::after {
@@ -148,6 +203,7 @@
       height: 2px;
       background: var(--yellow);
       border-radius: 1px;
+      animation: expandWidth 1.5s ease-out 0.5s both;
     }
     
     .projects-grid {
@@ -165,6 +221,11 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .project:nth-child(2) {
+      animation-delay: 0.2s;
     }
     
     .project::before {
@@ -184,7 +245,7 @@
     }
     
     .project:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
       border-color: rgba(0, 212, 255, 0.3);
     }
@@ -193,12 +254,14 @@
       font-size: 1.5rem;
       margin-bottom: 15px;
       color: var(--accent);
+      animation: slideInFromRight 0.8s ease-out;
     }
     
     .project p {
       color: var(--muted);
       margin-bottom: 20px;
       line-height: 1.7;
+      animation: fadeIn 1s ease-out 0.3s both;
     }
     
     .tech-stack {
@@ -206,6 +269,7 @@
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 20px;
+      animation: fadeIn 1s ease-out 0.5s both;
     }
     
     .tech-tag {
@@ -216,6 +280,13 @@
       font-size: 0.85rem;
       font-weight: 500;
       border: 1px solid rgba(0, 212, 255, 0.2);
+      transition: all 0.3s ease;
+      animation: tagPop 0.6s ease-out;
+    }
+    
+    .tech-tag:hover {
+      background: rgba(0, 212, 255, 0.2);
+      transform: scale(1.1);
     }
     
     .project-link {
@@ -226,11 +297,13 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
+      animation: fadeIn 1s ease-out 0.7s both;
     }
     
     .project-link:hover {
       gap: 12px;
       color: var(--yellow);
+      transform: translateX(5px);
     }
     
     .project-link::after {
@@ -249,6 +322,7 @@
       padding: 40px 0;
       color: var(--muted);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-out 1s both;
     }
     
     /* Animations */
@@ -263,9 +337,81 @@
       }
     }
     
-    @keyframes float {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes expandWidth {
+      from { width: 0; }
+      to { width: 60px; }
+    }
+    
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 5px var(--accent); }
+      50% { box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+    }
+    
+    @keyframes textGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3)); }
+      50% { filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6)); }
+    }
+    
+    @keyframes buttonFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes tagPop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes bgFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-10px, -10px) rotate(1deg); }
+      50% { transform: translate(10px, -5px) rotate(-1deg); }
+      75% { transform: translate(-5px, 10px) rotate(1deg); }
+    }
+    
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
     
     /* Responsive Design */
@@ -313,6 +459,16 @@
   </style>
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="bg-animation"></div>
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
   <div class="container">
     <div class="header">
       <h1>👋 Hi, I'm Eren Batu Cansever</h1>
