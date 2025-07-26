@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eren Batu Cansever | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    p {
+      margin-top: 0;
+      color: #cbd5e1;
+    }
+    .links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    .project {
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 700px;
+      background: #1e293b;
+    }
+    .project h2 {
+      margin: 0 0 10px;
+      color: #facc15;
+    }
+    .project p {
+      margin-bottom: 10px;
+    }
+    .project a {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eren Batu Cansever</h1>
+  <p>Computer Engineering @ Sabancı University</p>
+  <div class="links">
+    <a href="https://github.com/erencansever" target="_blank">GitHub</a> |
+    <a href="https://www.linkedin.com/in/eren-batu-cansever-649b80245/" target="_blank">LinkedIn</a>
+  </div>
+
+  <div class="project">
+    <h2>🕷️ Web Crawler Toolkit</h2>
+    <p>A modular web scraping framework that extracts event data (e.g., Biletix) using Selenium, parsing results into clean JSON files.</p>
+    <p><strong>Technologies:</strong> Python · Selenium · BeautifulSoup · JSON</p>
+    <a href="https://github.com/erencansever/web-crawler-toolkit" target="_blank">→ View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <h2>🛒 MongoDB + MySQL E-Commerce System</h2>
+    <p>A hybrid data system storing and syncing customer/product/payment info across MongoDB and MySQL with dynamic PHP web interface.</p>
+    <p><strong>Technologies:</strong> MongoDB · MySQL · PHP · Docker · HTML/CSS</p>
+    <a href="https://github.com/erencansever/ecommerce-data-system" target="_blank">→ View on GitHub</a>
+  </div>
+</body>
+</html>
