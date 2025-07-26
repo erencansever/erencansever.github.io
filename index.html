@@ -5,71 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eren Batu Cansever | Portfolio</title>
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --accent: #38bdf8;
+      --yellow: #facc15;
+      --muted: #94a3b8;
+    }
     body {
       margin: 0;
+      padding: 30px 20px;
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
     }
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 5px;
+      margin-bottom: 0.3rem;
+    }
+    h2 {
+      margin-top: 40px;
+      color: var(--yellow);
     }
     p {
-      margin-top: 0;
-      color: #cbd5e1;
+      line-height: 1.6;
+      color: var(--muted);
     }
     .links a {
-      margin: 0 10px;
+      margin-right: 15px;
+      color: var(--accent);
       text-decoration: none;
-      color: #38bdf8;
       font-weight: bold;
     }
     .project {
-      border: 1px solid #334155;
-      border-radius: 12px;
+      background: var(--card);
       padding: 20px;
-      margin: 20px 0;
-      width: 100%;
-      max-width: 700px;
-      background: #1e293b;
+      border-radius: 12px;
+      margin: 30px 0;
+      box-shadow: 0 0 0 transparent;
+      transition: 0.3s ease;
     }
-    .project h2 {
-      margin: 0 0 10px;
-      color: #facc15;
-    }
-    .project p {
-      margin-bottom: 10px;
+    .project:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .project a {
-      color: #38bdf8;
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <h1>Eren Batu Cansever</h1>
-  <p>Computer Engineering @ Sabancı University</p>
-  <div class="links">
-    <a href="https://github.com/erencansever" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/eren-batu-cansever-649b80245/" target="_blank">LinkedIn</a>
-  </div>
+  <div class="container">
+    <h1>👋 Hi, I'm Eren Batu Cansever</h1>
+    <p>Computer Engineering student @ Sabancı University</p>
+    <p>Passionate about backend systems, automation, and AI-enhanced data processing.</p>
 
-  <div class="project">
+    <div class="links">
+      <a href="https://github.com/erencansever" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/eren-batu-cansever-649b80245" target="_blank">LinkedIn</a>
+    </div>
+
     <h2>🕷️ Web Crawler Toolkit</h2>
-    <p>A modular web scraping framework that extracts event data (e.g., Biletix) using Selenium, parsing results into clean JSON files.</p>
-    <p><strong>Technologies:</strong> Python · Selenium · BeautifulSoup · JSON</p>
-    <a href="https://github.com/erencansever/web-crawler-toolkit" target="_blank">→ View on GitHub</a>
-  </div>
+    <div class="project">
+      <p>Modular web scraping system that extracts event data from dynamic pages (like Biletix) using Selenium. Prepares structured JSON output ready for ML pipelines.</p>
+      <p><strong>Tech:</strong> Python · Selenium · BeautifulSoup · JSON</p>
+      <a href="https://github.com/erencansever/web-crawler-toolkit" target="_blank">→ View Project</a>
+    </div>
 
-  <div class="project">
     <h2>🛒 MongoDB + MySQL E-Commerce System</h2>
-    <p>A hybrid data system storing and syncing customer/product/payment info across MongoDB and MySQL with dynamic PHP web interface.</p>
-    <p><strong>Technologies:</strong> MongoDB · MySQL · PHP · Docker · HTML/CSS</p>
-    <a href="https://github.com/erencansever/ecommerce-data-system" target="_blank">→ View on GitHub</a>
+    <div class="project">
+      <p>A hybrid backend system that stores customer, product, and payment data in both MongoDB and MySQL. Features a dynamic web interface and Docker deployment.</p>
+      <p><strong>Tech:</strong> PHP · MySQL · MongoDB · Docker · HTML/CSS</p>
+      <a href="https://github.com/erencansever/ecommerce-data-system" target="_blank">→ View Project</a>
+    </div>
+
+    <h2>🧠 AI-Powered Call Analysis Tools</h2>
+    <div class="project">
+      <p>Uses embeddings, vector search, and topic modeling (LDA/HDBSCAN/UMAP) to analyze real-world call center transcripts. Embedding model: LLaMA3/BGE-M3 via Ollama.</p>
+      <p><strong>Tech:</strong> Python · FastAPI · UMAP · Embeddings · NLP</p>
+      <a href="https://github.com/erencansever/call-analysis" target="_blank">→ View Project</a>
+    </div>
+
+    <footer>
+      © 2025 Eren Batu Cansever · erencansever.github.io
+    </footer>
   </div>
 </body>
 </html>
+
