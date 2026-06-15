@@ -60,7 +60,7 @@
     .nav-links a:hover { color: var(--accent); }
 
     /* Container */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; }
 
     /* Hero */
     #hero {
@@ -124,7 +124,7 @@
       transform: translateY(-2px);
     }
 
-    /* Section labels & titles */
+    /* Section */
     .section-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; opacity: 0.7;
@@ -176,8 +176,7 @@
     .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--text); }
 
     .exp-period {
-      font-size: 0.8rem; color: var(--muted); font-weight: 500;
-      white-space: nowrap;
+      font-size: 0.8rem; color: var(--muted); font-weight: 500; white-space: nowrap;
     }
 
     .exp-company {
@@ -187,8 +186,7 @@
 
     .exp-bullets { padding-left: 18px; }
     .exp-bullets li {
-      color: var(--muted); font-size: 0.88rem; line-height: 1.65;
-      margin-bottom: 4px;
+      color: var(--muted); font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px;
     }
 
     /* Skills */
@@ -231,7 +229,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
 
@@ -310,7 +308,7 @@
     .contact-card .section-title::after { left: 50%; transform: translateX(-50%); }
 
     .contact-card p {
-      color: var(--muted); margin-bottom: 28px; font-size: 0.96rem; line-height: 1.7;
+      color: var(--muted); margin-bottom: 20px; font-size: 0.96rem; line-height: 1.7;
     }
 
     .contact-email {
@@ -329,7 +327,7 @@
       color: var(--muted); font-size: 0.82rem;
     }
 
-    /* Reveal animation */
+    /* Reveal */
     .reveal {
       opacity: 0; transform: translateY(22px);
       transition: opacity 0.55s ease, transform 0.55s ease;
@@ -347,7 +345,6 @@
       .contact-card { padding: 32px 18px; }
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: rgba(93,173,226,0.25); border-radius: 3px; }
@@ -457,8 +454,19 @@
           <div class="skill-tags">
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">DynamoDB</span>
             <span class="skill-tag">Schema Design</span>
             <span class="skill-tag">Stored Procedures</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud &amp; Infra</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS EC2</span>
+            <span class="skill-tag">AWS S3</span>
+            <span class="skill-tag">AWS SNS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
           </div>
         </div>
         <div class="skill-group">
@@ -468,14 +476,6 @@
             <span class="skill-tag">Puppeteer</span>
             <span class="skill-tag">ETL Pipelines</span>
             <span class="skill-tag">Task Scheduling</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Tools</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Linux</span>
           </div>
         </div>
       </div>
@@ -503,25 +503,68 @@
         <div class="project-card">
           <div class="project-category">Computer Vision</div>
           <h3>Night-Time Vehicle &amp; Obstacle Detection</h3>
-          <p>Computer vision system for detecting vehicles and road obstacles in low-light environments, implementing an AI-based object detection pipeline for driver assistance scenarios.</p>
+          <p>Real-time detection and tracking of vehicles and road obstacles in low-light environments using a NIR camera, Kalman Filter, and distance estimation for driver assistance.</p>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Computer Vision</span>
+            <span class="tech-tag">OpenCV</span>
             <span class="tech-tag">Deep Learning</span>
+            <span class="tech-tag">Kalman Filter</span>
           </div>
+          <a href="https://github.com/erencansever/night-vision-vehicle-detector" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Cloud &amp; Backend</div>
+          <h3>Cloud-Based URL Shortener &amp; Analytics Platform</h3>
+          <p>Serverless URL shortening service with click analytics, built on AWS. Uses DynamoDB for storage, S3 for static hosting, SNS for notifications, and CloudWatch for monitoring.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">AWS EC2</span>
+            <span class="tech-tag">DynamoDB</span>
+            <span class="tech-tag">S3</span>
+            <span class="tech-tag">SNS</span>
+            <span class="tech-tag">CloudWatch</span>
+          </div>
+          <a href="https://github.com/erencansever/url-shortener" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">ML &amp; Data Science</div>
+          <h3>Whistles or Whispers — Betting Market Anomaly Study</h3>
+          <p>Statistical and ML investigation into whether heavy favorites in football lose suspiciously often. Includes calibration analysis, line-movement study, and anomaly detection across major leagues.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">Data Analysis</span>
+            <span class="tech-tag">Jupyter</span>
+          </div>
+          <a href="https://github.com/erencansever/Whistles-or-Whispers" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Automation</div>
+          <h3>Web Crawler Toolkit</h3>
+          <p>Modular Python scraping toolkit targeting dynamic, JavaScript-heavy pages. Handles pagination, Selenium-driven interaction, sitemap parsing, and structured JSON output for ML pipelines.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Selenium</span>
+            <span class="tech-tag">BeautifulSoup</span>
+            <span class="tech-tag">JSON</span>
+          </div>
+          <a href="https://github.com/erencansever/Web-Crawler-Toolkit" target="_blank" class="project-link">View Project</a>
         </div>
 
         <div class="project-card">
           <div class="project-category">Backend</div>
           <h3>E-Commerce Data Synchronization System</h3>
-          <p>Backend system enabling real-time synchronization between MySQL and MongoDB. Implemented database logic using triggers and stored procedures, containerized with Docker.</p>
+          <p>Backend system enabling real-time synchronization between MySQL and MongoDB. Implements database logic with triggers and stored procedures, containerized with Docker.</p>
           <div class="tech-stack">
             <span class="tech-tag">PHP</span>
             <span class="tech-tag">MySQL</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Docker</span>
           </div>
-          <a href="https://github.com/erencansever/ecommerce-data-system" target="_blank" class="project-link">View Project</a>
+          <a href="https://github.com/erencansever/CS308-ECommerce-Backend" target="_blank" class="project-link">View Project</a>
         </div>
 
       </div>
