@@ -27,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* Background glow */
     .bg-glow {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
       background:
@@ -53,7 +52,7 @@
       background-clip: text;
     }
 
-    .nav-links { display: flex; gap: 28px; }
+    .nav-links { display: flex; gap: 24px; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: 0.88rem;
       font-weight: 500; transition: color 0.2s;
@@ -97,7 +96,7 @@
 
     .description {
       font-size: 0.98rem; color: var(--muted);
-      max-width: 500px; margin: 0 auto 36px; line-height: 1.75;
+      max-width: 520px; margin: 0 auto 36px; line-height: 1.75;
     }
 
     .hero-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -125,7 +124,7 @@
       transform: translateY(-2px);
     }
 
-    /* Section titles */
+    /* Section labels & titles */
     .section-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; opacity: 0.7;
@@ -143,12 +142,61 @@
       background: var(--gradient-text); border-radius: 2px;
     }
 
+    /* Experience */
+    #experience { padding: 60px 0; }
+
+    .experience-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px; padding: 26px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative; overflow: hidden;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+      background: var(--gradient-text); opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .exp-card:hover::before { opacity: 1; }
+    .exp-card:hover {
+      border-color: rgba(93,173,226,0.28);
+      transform: translateX(4px);
+    }
+
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 6px; margin-bottom: 6px;
+    }
+
+    .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+
+    .exp-period {
+      font-size: 0.8rem; color: var(--muted); font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.88rem; color: var(--accent); font-weight: 600;
+      margin-bottom: 12px; opacity: 0.9;
+    }
+
+    .exp-bullets { padding-left: 18px; }
+    .exp-bullets li {
+      color: var(--muted); font-size: 0.88rem; line-height: 1.65;
+      margin-bottom: 4px;
+    }
+
     /* Skills */
     #skills { padding: 60px 0; }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 14px;
     }
 
@@ -204,7 +252,6 @@
     }
 
     .project-card:hover::before { opacity: 1; }
-
     .project-card:hover {
       border-color: rgba(93,173,226,0.28);
       transform: translateY(-6px);
@@ -256,7 +303,7 @@
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: 16px; padding: 48px 32px;
-      max-width: 500px; margin: 0 auto;
+      max-width: 520px; margin: 0 auto;
     }
 
     .contact-card .section-title { display: block; text-align: center; margin-bottom: 16px; }
@@ -265,6 +312,13 @@
     .contact-card p {
       color: var(--muted); margin-bottom: 28px; font-size: 0.96rem; line-height: 1.7;
     }
+
+    .contact-email {
+      display: inline-block; color: var(--accent); font-weight: 600;
+      font-size: 0.95rem; text-decoration: none; margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--accent-hover); }
 
     .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -285,9 +339,11 @@
     /* Responsive */
     @media (max-width: 640px) {
       nav { padding: 12px 16px; }
-      .nav-links { gap: 16px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 0.82rem; }
       .container { padding: 0 16px 60px; }
       #hero { padding: 60px 0 40px; min-height: 70vh; }
+      .exp-header { flex-direction: column; }
       .contact-card { padding: 32px 18px; }
     }
 
@@ -305,6 +361,7 @@
   <nav>
     <span class="nav-logo">Eren Batu Cansever</span>
     <div class="nav-links">
+      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -318,10 +375,45 @@
       <div class="avatar">EC</div>
       <h1>Hi, I'm Eren</h1>
       <p class="subtitle">Computer Engineering Student @ Sabancı University</p>
-      <p class="description">Passionate about backend systems, automation, and data processing. Building scalable solutions with modern technologies.</p>
+      <p class="description">Focused on AI engineering, backend systems, and data processing. I build scalable pipelines, ML-driven solutions, and automation tools.</p>
       <div class="hero-links">
         <a href="https://github.com/erencansever" target="_blank" class="btn btn-primary">GitHub</a>
         <a href="https://linkedin.com/in/eren-batu-cansever-649b80245" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="reveal">
+      <div class="section-label">Where I've worked</div>
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-list">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-role">AI Engineer Intern — AI Testing &amp; Automation</span>
+            <span class="exp-period">Sep 2025 – Dec 2025</span>
+          </div>
+          <div class="exp-company">Kariyer.net · Istanbul</div>
+          <ul class="exp-bullets">
+            <li>Developed and evaluated ML models including text classification and relevance scoring.</li>
+            <li>Designed AI-driven test cases to validate model outputs and edge-case behaviors in production systems.</li>
+            <li>Automated evaluation pipelines with Python, improving testing reliability and model validation.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-role">Data Science Intern</span>
+            <span class="exp-period">Jul 2024 – Aug 2024</span>
+          </div>
+          <div class="exp-company">Arabam.com · Istanbul</div>
+          <ul class="exp-bullets">
+            <li>Worked with large-scale marketplace datasets using SQL and NoSQL for querying and data exploration.</li>
+            <li>Assisted in data preparation and analytics workflows for reporting and business insights.</li>
+            <li>Contributed to improving query performance and data processing efficiency.</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
@@ -331,21 +423,33 @@
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-group">
-          <div class="skill-group-label">Languages</div>
+          <div class="skill-group-label">Programming</div>
           <div class="skill-tags">
             <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
             <span class="skill-tag">PHP</span>
             <span class="skill-tag">SQL</span>
-            <span class="skill-tag">HTML / CSS</span>
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-label">Data &amp; AI</div>
+          <div class="skill-group-label">ML &amp; AI</div>
           <div class="skill-tags">
-            <span class="skill-tag">OpenAI Whisper</span>
-            <span class="skill-tag">librosa</span>
-            <span class="skill-tag">matplotlib</span>
-            <span class="skill-tag">BeautifulSoup</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Speech-to-Text</span>
+            <span class="skill-tag">Sentiment Analysis</span>
+            <span class="skill-tag">Model Evaluation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Backend &amp; APIs</div>
+          <div class="skill-tags">
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Firebase Functions</span>
+            <span class="skill-tag">Node.js</span>
           </div>
         </div>
         <div class="skill-group">
@@ -353,15 +457,25 @@
           <div class="skill-tags">
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Schema Design</span>
+            <span class="skill-tag">Stored Procedures</span>
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-label">Tools &amp; Infra</div>
+          <div class="skill-group-label">Automation</div>
           <div class="skill-tags">
-            <span class="skill-tag">Docker</span>
             <span class="skill-tag">Selenium</span>
+            <span class="skill-tag">Puppeteer</span>
+            <span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">Task Scheduling</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools</div>
+          <div class="skill-tags">
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">yt-dlp</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
           </div>
         </div>
       </div>
@@ -374,42 +488,38 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-category">AI &amp; Data</div>
-          <h3>YouTube AI Transcriber &amp; Emotion Analyzer</h3>
-          <p>Transcribes YouTube videos using OpenAI Whisper and performs AI-powered emotion analysis on the audio. Features emotion timeline, mood detection, tone analysis, and rich visualizations.</p>
+          <div class="project-category">AI &amp; NLP</div>
+          <h3>YouTube Transcription &amp; Sentiment Analyzer</h3>
+          <p>AI pipeline that converts YouTube videos to text using Whisper, performs segment-level sentiment analysis, and exports structured JSON data for analytics.</p>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">OpenAI Whisper</span>
-            <span class="tech-tag">librosa</span>
-            <span class="tech-tag">matplotlib</span>
-            <span class="tech-tag">yt-dlp</span>
+            <span class="tech-tag">Whisper</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">Sentiment Analysis</span>
           </div>
           <a href="https://github.com/erencansever/Youtube_AI_Transcriber" target="_blank" class="project-link">View Project</a>
         </div>
 
         <div class="project-card">
-          <div class="project-category">Web Crawling</div>
-          <h3>Event Data Extractor</h3>
-          <p>Modular web scraping system that extracts event data from dynamic pages using Selenium. Produces structured JSON output ready for ML pipelines.</p>
+          <div class="project-category">Computer Vision</div>
+          <h3>Night-Time Vehicle &amp; Obstacle Detection</h3>
+          <p>Computer vision system for detecting vehicles and road obstacles in low-light environments, implementing an AI-based object detection pipeline for driver assistance scenarios.</p>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Selenium</span>
-            <span class="tech-tag">BeautifulSoup</span>
-            <span class="tech-tag">JSON</span>
+            <span class="tech-tag">Computer Vision</span>
+            <span class="tech-tag">Deep Learning</span>
           </div>
-          <a href="https://github.com/erencansever/web-crawler-toolkit" target="_blank" class="project-link">View Project</a>
         </div>
 
         <div class="project-card">
           <div class="project-category">Backend</div>
-          <h3>Hybrid E-Commerce Database System</h3>
-          <p>Backend system storing customer, product, and payment data across MongoDB and MySQL. Features a dynamic web interface and Docker deployment for easy scaling.</p>
+          <h3>E-Commerce Data Synchronization System</h3>
+          <p>Backend system enabling real-time synchronization between MySQL and MongoDB. Implemented database logic using triggers and stored procedures, containerized with Docker.</p>
           <div class="tech-stack">
             <span class="tech-tag">PHP</span>
             <span class="tech-tag">MySQL</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Docker</span>
-            <span class="tech-tag">HTML/CSS</span>
           </div>
           <a href="https://github.com/erencansever/ecommerce-data-system" target="_blank" class="project-link">View Project</a>
         </div>
@@ -422,6 +532,7 @@
       <div class="contact-card">
         <h2 class="section-title">Get in Touch</h2>
         <p>Open to internship opportunities, collaborations, or just a good conversation about tech.</p>
+        <a href="mailto:batu.cansever@sabanciuniv.edu" class="contact-email">batu.cansever@sabanciuniv.edu</a>
         <div class="contact-links">
           <a href="https://github.com/erencansever" target="_blank" class="btn btn-outline">GitHub</a>
           <a href="https://linkedin.com/in/eren-batu-cansever-649b80245" target="_blank" class="btn btn-primary">LinkedIn</a>
@@ -432,7 +543,7 @@
   </div>
 
   <footer>
-    <p>© 2025 Eren Batu Cansever · erencansever.github.io</p>
+    <p>© 2026 Eren Batu Cansever · erencansever.github.io</p>
   </footer>
 
   <script>
